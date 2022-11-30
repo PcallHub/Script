@@ -166,8 +166,8 @@ function Blacklib:Window(title, gametitle)
     CloseImage.BackgroundTransparency = 1.000
     CloseImage.Size = UDim2.new(0, 0, 0, 0)
     CloseImage.Position = UDim2.new(0, -370, 0, 170)
-    CloseImage.Image = "rbxassetid://8666601749"
-    CloseImage.ImageColor3 = Color3.fromRGB(150, 30, 30)
+    CloseImage.Image = "rbxthumb://type=Asset&id=11704923391&w=150&h=150"
+    CloseImage.ImageColor3 = _G.SectionColor
     
     ServerTime.Name = "ServerTime"
     ServerTime.Parent = WindowFrame
@@ -202,7 +202,7 @@ function Blacklib:Window(title, gametitle)
     PlaLab.Position = UDim2.new(0, 3, 0, 353)
     PlaLab.Size = UDim2.new(0, 150, 0, 25)
     PlaLab.Font = Enum.Font.Code
-    PlaLab.Text = title
+    PlaLab.Text = ""
     PlaLab.TextSize = 13.000
     PlaLab.TextColor3 = Color3.fromRGB(255, 255, 255)
     PlaLab.TextXAlignment = Enum.TextXAlignment.Center
@@ -338,10 +338,7 @@ function Blacklib:Window(title, gametitle)
             Shadow.ImageTransparency = 0
     end)
     CloseButton.MouseButton1Click:Connect(function()
-        Shadow.ImageTransparency = 1.000
-            game.TweenService:Create(Shadow, TweenInfo.new(0.12, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-            game.TweenService:Create(CloseImage, TweenInfo.new(0.03, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 70, 0, 70)}):Play()
-            game.TweenService:Create(CloseImage, TweenInfo.new(0.03, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Position = UDim2.new(0, -95, 0, 170)}):Play()
+            game.CoreGui:FindFirstChild("Pcall"):Destroy()
     end)
     MinButton.MouseButton1Click:Connect(function()
         if mintoggle == true then
@@ -566,7 +563,7 @@ function Blacklib:Window(title, gametitle)
         TabImage.BackgroundTransparency = 1.000
         TabImage.Position = UDim2.new(0, 3, 0, 4)
         TabImage.Size = UDim2.new(0, 20, 0, 20)
-        TabImage.Image = img or "rbxassetid://8666601749"
+        TabImage.Image = img or "rbxthumb://type=Asset&id=11704923391&w=150&h=150"
         TabImage.ImageColor3 = _G.TabImageColor
         
         TabTitle.Name = tabtitle or "TabTitle"
@@ -720,9 +717,9 @@ function Blacklib:Window(title, gametitle)
                     isDropped = true
                     sectionFrame:TweenSize(UDim2.new(0, 405, 0, sectionListLayout.AbsoluteContentSize.Y + 8), "In", "Linear", 0.10)
                     game.TweenService:Create(closeSection, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Rotation = 0}):Play()
-                    game.TweenService:Create(closeSection, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = Color3.fromRGB(200, 12, 12)}):Play()
-                    game.TweenService:Create(sectionCircle, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundColor3 = Color3.fromRGB(200, 12, 12)}):Play()
-                    game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = Color3.fromRGB(200, 12, 12)}):Play()
+                    game.TweenService:Create(closeSection, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = _G.SectionColor}):Play()
+                    game.TweenService:Create(sectionCircle, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundColor3 = _G.SectionColor}):Play()
+                    game.TweenService:Create(TextLabel, TweenInfo.new(0.10, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = _G.SectionColor}):Play()
                     wait(0.10)
                     UpdateSize()
                 end
@@ -748,7 +745,7 @@ function Blacklib:Window(title, gametitle)
                 Button.Name = "Button"
                 Button.Parent = ButtonFrame
                 Button.AutoButtonColor = false
-                Button.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+                Button.BackgroundColor3 = _G.BackgroundItemColor
                 Button.BorderSizePixel = 0
                 Button.Position = UDim2.new(0, 50, 0, 2)
                 Button.Size = UDim2.new(0, 305, 0, 25)
@@ -806,12 +803,12 @@ function Blacklib:Window(title, gametitle)
                     if callBackDebounce then
                         mouseleft = false
                         game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),{
-                            BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+                            BackgroundColor3 = _G.BackgroundItemColor
                         }):Play()
                     else
                         mouseleft = false
                         game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),{
-                            BackgroundColor3 = Color3.fromRGB(140, 140, 140)
+                            BackgroundColor3 = _G.BackgroundItemColor
                         }):Play()
                     end
                 end)
@@ -823,7 +820,7 @@ function Blacklib:Window(title, gametitle)
                             TextSize = 13
                         }):Play()
                         game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),{
-                            BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+                            BackgroundColor3 = _G.BackgroundItemColor
                         }):Play()
                     else
                         mouseleft = true
@@ -832,7 +829,7 @@ function Blacklib:Window(title, gametitle)
                             TextSize = 13
                         }):Play()
                         game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),{
-                            BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+                            BackgroundColor3 = _G.BackgroundItemColor
                         }):Play()
                     end
                 end)
@@ -1403,7 +1400,7 @@ function Blacklib:Window(title, gametitle)
             
                 SliderCount.Name = "SliderCount"
                 SliderCount.Parent = SliderButton
-                SliderCount.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+                SliderCount.BackgroundColor3 = _G.SectionColor
                 SliderCount.BackgroundTransparency = 0.3
                 SliderCount.BorderSizePixel = 0
                 SliderCount.Position = UDim2.new((start or 0) / max, 0, 0, 0)
@@ -1412,7 +1409,7 @@ function Blacklib:Window(title, gametitle)
                 Title_2.Name = "Title_2"
                 Title_2.Parent = SliderButton
                 Title_2.AnchorPoint = Vector2.new(0, 0)
-                Title_2.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+                Title_2.BackgroundColor3 = _G.SectionColor
                 Title_2.AutoButtonColor = false
                 Title_2.BackgroundTransparency = 1.000
                 Title_2.Position = UDim2.new((start or 0) / max, 0, 0, 0)
@@ -1432,7 +1429,7 @@ function Blacklib:Window(title, gametitle)
                 SliderStroke.Name = "SliderStroke"
                 SliderStroke.Parent = BoxFrame
                 SliderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-                SliderStroke.Color = Color3.fromRGB(200, 0, 0)
+                SliderStroke.Color = _G.SectionColor
                 SliderStroke.LineJoinMode = Enum.LineJoinMode.Round
                 SliderStroke.Thickness = 1
                 SliderStroke.Transparency = 0.5
@@ -1448,14 +1445,14 @@ function Blacklib:Window(title, gametitle)
             
                 SliderBox.Name = "SliderBox"
                 SliderBox.Parent = BoxFrame
-                SliderBox.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+                SliderBox.BackgroundColor3 = _G.SectionColor
                 SliderBox.BackgroundTransparency = 1.000
                 SliderBox.Position = UDim2.new(0, 0, 0, 1.65)
                 SliderBox.Size = UDim2.new(0, 50, 0, 15)
                 SliderBox.ClearTextOnFocus = false
                 SliderBox.Font = Enum.Font.GothamSemibold
                 SliderBox.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)
-                SliderBox.TextColor3 = Color3.fromRGB(200, 0, 0)
+                SliderBox.TextColor3 = _G.BackgroundItemColor
                 SliderBox.TextSize = 10.000
                 SliderBox.TextTransparency = 0.5
                 SliderBox.TextXAlignment = Enum.TextXAlignment.Center
@@ -1650,7 +1647,7 @@ function Blacklib:Window(title, gametitle)
             -- End Slider --
             
             -- Text Box --
-            function ItemHand:TextBox(boxtitle, textbox, callback)
+            function ItemHand:Textbox(boxtitle, textbox, callback)
                 textbox = textbox or "Type Here"
                 callback = callback or function() end
                 local BoxFrame = Instance.new("Frame")
@@ -1918,8 +1915,8 @@ function Blacklib:Window(title, gametitle)
                 TextButton.Position = UDim2.new(0, 10, 0, 0)
                 TextButton.Size = UDim2.new(0, 385, 0, 15)
                 TextButton.Font = Enum.Font.GothamSemibold
-                TextButton.Text = textlabel or ""
-                TextButton.TextColor3 = _G.SectionTextColor
+                TextButton.Text = "[-] "..textlabel or "[-] N/A"
+                TextButton.TextColor3 = Color3.fromRGB(255,255,255)
                 TextButton.TextSize = 13.000
                 TextButton.TextXAlignment = Enum.TextXAlignment.Left
                 
@@ -1933,7 +1930,7 @@ function Blacklib:Window(title, gametitle)
                         pcall(function()
                             labelfunc:Refresh("")
                             wait(.3)
-                            labelfunc:Refresh(textlabel)
+                            labelfunc:Refresh("[-] "..textlabel)
                             wait(.1)
                             wait(.8)
                         end)
