@@ -751,7 +751,7 @@ function Blacklib:Window(title, gametitle)
                 Button.Size = UDim2.new(0, 305, 0, 25)
                 Button.Font = Enum.Font.GothamSemibold
                 Button.Text = buttontitle
-                Button.TextColor3 = Color3.fromRGB(12, 12, 12)
+                Button.TextColor3 = _G.ColorUILol
                 Button.TextSize = 13.000
                 
                 UICorner.CornerRadius = UDim.new(0, 5)
